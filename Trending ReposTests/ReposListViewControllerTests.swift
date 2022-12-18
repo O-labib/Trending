@@ -183,6 +183,37 @@ extension ReposListViewControllerTests {
     }
 }
 
+// MARK: - Refresh Control Behavior
+extension ReposListViewControllerTests {
+    func testDidTapCell_ToggleCellExpansionState() {
+        func reposCell(for index: IndexPath) -> ReposListCell {
+            tableView.cellForRow(at: index) as! ReposListCell
+        }
+        
+        // Given
+        let tableView = testViewController.tableView!
+        let viewModel: [ReposListCell.ViewModel] = [
+            .stubbed(isExpanded: false),
+            .stubbed(isExpanded: true)
+        ]
+        testViewController.updateViewState(.loaded(viewModel: viewModel))
+        
+        let indices = viewModel.enumerated()
+            .map({ IndexPath(row: $0.offset, section: 0) })
+        
+        for indexPath in indices {
+            let isInitiallyCollapsed = reposCell(for: indexPath).detailStackView.isHidden
+            
+            // When
+            testViewController.tableView(tableView, didSelectRowAt: indexPath)
+            let isCollapsedAfterTap = reposCell(for: indexPath).detailStackView.isHidden
+            
+            // Then
+            XCTAssertNotEqual(isInitiallyCollapsed, isCollapsedAfterTap)
+        }
+    }
+}
+
 extension ReposListViewControllerTests {
     class PresenterSpy: ReposListPresenterProtocol {
         var loadAvailableReposCallCount = 0

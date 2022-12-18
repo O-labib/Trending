@@ -84,6 +84,8 @@ extension ReposListViewController {
         }
         viewModel[indexPath.row].isExpanded.toggle()
         self.state = .loaded(viewModel: viewModel)
+        
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
 
