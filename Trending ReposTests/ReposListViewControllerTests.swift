@@ -42,4 +42,22 @@ final class ReposListViewControllerTests: XCTestCase {
         }
     }
     
+    func testUpdateViewState_ShowNetworkErrorCell_WhenFailed() {
+        // Given
+        let viewState: ReposListViewController.State = .failed
+        
+        // When
+        testViewController.updateViewState(viewState)
+        
+        // Then
+        let tableView = testViewController.tableView!
+        XCTAssertEqual(
+            testViewController.tableView(tableView, numberOfRowsInSection: 0),
+            1
+        )
+        XCTAssertTrue(
+            testViewController.tableView(tableView, cellForRowAt: .init(row: 0, section: 0)) is ReposListFailureCell
+        )
+    }
+    
 }
