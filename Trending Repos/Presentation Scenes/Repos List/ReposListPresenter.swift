@@ -33,9 +33,21 @@ extension ReposListPresenter: ReposListPresenterProtocol {
     }
     
     func refreshRepos() {
+        presentLoadingState()
+        
+        reposListUseCase.fetchRemoteRepos { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let repos):
+                self.presentLoadedState(repos)
+            case .failure:
+                self.presentErrorState()
+            }
+        }
     }
 
     func reloadRepos() {
+        loadAvailableRepos()
     }
     
     func convert(_ repo: Repo) -> ReposListCell.ViewModel {

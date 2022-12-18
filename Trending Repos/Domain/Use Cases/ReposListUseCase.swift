@@ -9,6 +9,7 @@ import Foundation
 
 protocol ReposListUseCase {
     func fetchAvailableRepos(_ completion: (Result<[Repo], Error>) -> Void)
+    func fetchRemoteRepos(_ completion: (Result<[Repo], Error>) -> Void)
 }
 
 class ReposListInteractor {
@@ -23,5 +24,8 @@ class ReposListInteractor {
 
 extension ReposListInteractor: ReposListUseCase {
     func fetchAvailableRepos(_ completion: (Result<[Repo], Error>) -> Void) {
+    }
+    
+    func fetchRemoteRepos(_ completion: (Result<[Repo], Error>) -> Void) {
     }
 }

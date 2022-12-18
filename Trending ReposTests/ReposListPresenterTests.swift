@@ -27,6 +27,7 @@ final class ReposListPresenterTests: XCTestCase {
 
 }
 
+// MARK: - Available & Cached Repos Behavior
 extension ReposListPresenterTests {
     func testLoadAvailableRepos_CallsUpdateViewState_WhenFailed() {
         // Given
@@ -67,6 +68,47 @@ extension ReposListPresenterTests {
     }
 }
 
+// MARK: - Remote Repos Behavior
+extension ReposListPresenterTests {
+    func testRefreshRepos_CallsUpdateViewState_WhenFailed() {
+        // Given
+        useCaseStub.remoteReposResponse = .failure(NetworkError.unknown)
+        
+        // When
+        presenter.refreshRepos()
+        
+        // Then
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewStates.first,
+            .loading(count: 10)
+        )
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewStates.last,
+            .failed
+        )
+    }
+    
+    func testRefreshRepos_CallsUpdateViewState_WhenSuccess() {
+        // Given
+        let repos: [Repo] = [.stubbed()]
+        useCaseStub.remoteReposResponse = .success(repos)
+        
+        // When
+        presenter.refreshRepos()
+        
+        // Then
+        let cellsViewModels: [ReposListCell.ViewModel] = repos.map(presenter.convert(_:))
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewStates.first,
+            .loading(count: 10)
+        )
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewStates.last,
+            .loaded(viewModel: cellsViewModels)
+        )
+    }
+}
+
 extension ReposListPresenterTests {
     class ViewControllerSpy: ReposListViewProtocol {
         var updatedViewStates: [ReposListViewController.State] = []
@@ -80,6 +122,11 @@ extension ReposListPresenterTests {
         var availableReposResponse: Result<[Trending_Repos.Repo], Error>!
         func fetchAvailableRepos(_ completion: (Result<[Trending_Repos.Repo], Error>) -> Void) {
             completion(availableReposResponse)
+        }
+        
+        var remoteReposResponse: Result<[Trending_Repos.Repo], Error>!
+        func fetchRemoteRepos(_ completion: (Result<[Repo], Error>) -> Void) {
+            completion(remoteReposResponse)
         }
     }
 }
