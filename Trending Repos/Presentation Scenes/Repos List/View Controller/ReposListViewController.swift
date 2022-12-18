@@ -99,7 +99,7 @@ extension ReposListViewController: ReposListViewProtocol {
 }
 
 extension ReposListViewController {
-    enum State {
+    enum State: Equatable {
         case idle
         case loading(count: Int)
         case failed

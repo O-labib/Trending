@@ -26,13 +26,52 @@ final class ReposListPresenterTests: XCTestCase {
     }
 
 }
+
+extension ReposListPresenterTests {
+    func testLoadAvailableRepos_CallsUpdateViewState_WhenFailed() {
+        // Given
+        useCaseStub.availableReposResponse = .failure(NetworkError.unknown)
+        
+        // When
+        presenter.loadAvailableRepos()
+        
+        // Then
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewState,
+            .failed
+        )
+    }
+    
+    func testLoadAvailableRepos_CallsUpdateViewState_WhenSuccess() {
+        // Given
+        let repos: [Repo] = [.stubbed()]
+        useCaseStub.availableReposResponse = .success(repos)
+        
+        // When
+        presenter.loadAvailableRepos()
+        
+        // Then
+        let cellsViewModels: [ReposListCell.ViewModel] = repos.map(presenter.convert(_:))
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewState,
+            .loaded(viewModel: cellsViewModels)
+        )
+    }
+}
+
 extension ReposListPresenterTests {
     class ViewControllerSpy: ReposListViewProtocol {
+        var updatedViewState: ReposListViewController.State!
+        
         func updateViewState(_ state: Trending_Repos.ReposListViewController.State) {
+            updatedViewState = state
         }
     }
     
     class ReposListUseCaseStub: ReposListUseCase {
-        
+        var availableReposResponse: Result<[Trending_Repos.Repo], Error>!
+        func fetchAvailableRepos(_ completion: (Result<[Trending_Repos.Repo], Error>) -> Void) {
+            completion(availableReposResponse)
+        }
     }
 }
