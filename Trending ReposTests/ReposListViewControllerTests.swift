@@ -168,6 +168,19 @@ extension ReposListViewControllerTests {
         )
     }
 }
+
+// MARK: - Refresh Control Behavior
+extension ReposListViewControllerTests {
+    func testUpdateViewState_EndRefreshing() {
+        // Given
+        testViewController.refreshControl?.beginRefreshing()
+        
+        // When
+        testViewController.updateViewState(.loaded(viewModel: []))
+        
+        // Then
+        XCTAssertFalse(testViewController.refreshControl!.isRefreshing)
+    }
 }
 
 extension ReposListViewControllerTests {

@@ -89,6 +89,8 @@ extension ReposListViewController {
 
 extension ReposListViewController: ReposListViewProtocol {
     func updateViewState(_ state: State) {
+        refreshControl?.endRefreshing()
+        
         self.state = state
         tableView.reloadData()
     }
