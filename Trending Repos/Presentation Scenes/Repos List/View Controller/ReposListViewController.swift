@@ -65,6 +65,9 @@ extension ReposListViewController {
             return cell
         case .failed:
             let cell = tableView.dequeueReusableCell(withType: ReposListFailureCell.self, for: indexPath)
+            cell.retryAction = { [weak self] in
+                self?.presenter.reloadRepos()
+            }
             return cell
         case .loaded(let viewModel):
             let cell = tableView.dequeueReusableCell(withType: ReposListCell.self, for: indexPath)

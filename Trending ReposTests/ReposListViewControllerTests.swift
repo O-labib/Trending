@@ -150,12 +150,31 @@ extension ReposListViewControllerTests {
             1
         )
     }
+    
+    func testReloadRepos_IsCalled_WhenTappingRetryOnFailureCell() {
+        // When
+        testViewController.updateViewState(.failed)
+        
+        // Then
+        let tableView = testViewController.tableView!
+        guard let failureCell = testViewController.tableView(tableView, cellForRowAt: .init(row: 0, section: 0)) as? ReposListFailureCell else {
+            return XCTFail("Failed to dequeue repo cell")
+        }
+        failureCell.retryAction?()
+        
+        XCTAssertEqual(
+            presenterSpy.reloadReposCallCount,
+            1
+        )
+    }
+}
 }
 
 extension ReposListViewControllerTests {
     class PresenterSpy: ReposListPresenterProtocol {
         var loadAvailableReposCallCount = 0
         var refreshReposCallCount = 0
+        var reloadReposCallCount = 0
         
         func loadAvailableRepos() {
             loadAvailableReposCallCount += 1
@@ -163,6 +182,10 @@ extension ReposListViewControllerTests {
         
         func refreshRepos() {
             refreshReposCallCount += 1
+        }
+        
+        func reloadRepos() {
+            reloadReposCallCount += 1
         }
     }
 }

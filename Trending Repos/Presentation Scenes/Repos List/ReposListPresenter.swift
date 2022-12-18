@@ -23,4 +23,7 @@ extension ReposListPresenter: ReposListPresenterProtocol {
     
     func refreshRepos() {
     }
+
+    func reloadRepos() {
+    }
 }

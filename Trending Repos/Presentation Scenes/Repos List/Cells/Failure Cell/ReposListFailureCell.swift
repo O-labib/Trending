@@ -8,6 +8,8 @@
 import UIKit
 
 class ReposListFailureCell: UITableViewCell {
+    var retryAction: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
