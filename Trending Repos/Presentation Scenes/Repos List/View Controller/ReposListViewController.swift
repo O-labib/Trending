@@ -58,6 +58,16 @@ extension ReposListViewController {
     }
 }
 
+extension ReposListViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard case .loaded(var viewModel) = state else {
+            return
+        }
+        viewModel[indexPath.row].isExpanded.toggle()
+        self.state = .loaded(viewModel: viewModel)
+    }
+}
+
 extension ReposListViewController: ReposListViewProtocol {
     func updateViewState(_ state: State) {
         self.state = state

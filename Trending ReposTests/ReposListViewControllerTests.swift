@@ -95,3 +95,34 @@ extension ReposListViewControllerTests {
         }
     }
 }
+
+// MARK: - Test Cell Expand/Collapse
+extension ReposListViewControllerTests {
+    func testCellExpandAndCollapse_WhenTappingOnCell() {
+        // Given
+        let viewModel: [ReposListCell.ViewModel] = [
+            .stubbed(isExpanded: false),
+            .stubbed(isExpanded: true)
+        ]
+        testViewController.updateViewState(.loaded(viewModel: viewModel))
+        
+        // When
+        for i in 0..<viewModel.count {
+            let tableView = testViewController.tableView!
+            let indexPath = IndexPath(row: i, section: 0)
+            testViewController.tableView(tableView, didSelectRowAt: indexPath)
+        }
+        
+        // Then
+        guard case .loaded(let updatedViewModel) = testViewController.state else {
+            return XCTFail()
+        }
+        for (old, updated) in zip(viewModel, updatedViewModel) {
+            XCTAssertEqual(
+                updated.isExpanded,
+                !old.isExpanded
+            )
+        }
+    }
+}
+

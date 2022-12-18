@@ -19,5 +19,6 @@ class ReposListCell: UITableViewCell {
 extension ReposListCell {
     struct ViewModel: Equatable {
         let repoTitle: String
+        var isExpanded = false
     }
 }

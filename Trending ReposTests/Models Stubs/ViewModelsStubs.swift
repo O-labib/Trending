@@ -9,7 +9,13 @@ import Foundation
 @testable import Trending_Repos
 
 extension ReposListCell.ViewModel {
-    static func stubbed(title: String = "title") -> Self {
-        .init(repoTitle: title)
+    static func stubbed(
+        title: String = "title",
+        isExpanded: Bool = false
+    ) -> Self {
+        .init(
+            repoTitle: title,
+            isExpanded: isExpanded
+        )
     }
 }
