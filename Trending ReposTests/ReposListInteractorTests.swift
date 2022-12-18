@@ -49,7 +49,8 @@ extension ReposListInteractorTests {
         // Given
         let error = NetworkError.unknown
         remoteRepositoryStub.remoteReposResponse = .failure(error)
-
+        localRepositoryStub.stubbedLocalRepos = []
+        
         // When
         interactorClient.fetchRemoteRepos()
         
@@ -74,6 +75,21 @@ extension ReposListInteractorTests {
         )
     }
     
+    func testFetchRemoteRepos_WhenFailure_ReturnLocalReposIfNotEmpty() {
+        // Given
+        let error = NetworkError.unknown
+        remoteRepositoryStub.remoteReposResponse = .failure(error)
+        let localRepos = [Repo.stubbed()]
+        localRepositoryStub.stubbedLocalRepos = localRepos
+        
+        // When
+        interactorClient.fetchRemoteRepos()
+        
+        // Then
+        guard case .success(localRepos) = interactorClient.remoteReposResponse else {
+            return XCTFail()
+        }
+    }
 }
 
 // MARK: - Cached & Available Repos Behavior
