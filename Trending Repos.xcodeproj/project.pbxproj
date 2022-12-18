@@ -36,6 +36,7 @@
 		B69BCE76294F32E100F4EDD8 /* ReposListFailureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B69BCE74294F32E100F4EDD8 /* ReposListFailureCell.xib */; };
 		B69BCE7A294F33A300F4EDD8 /* ReposListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE78294F33A300F4EDD8 /* ReposListCell.swift */; };
 		B69BCE7B294F33A300F4EDD8 /* ReposListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */; };
+		B69BCE7E294F3DAF00F4EDD8 /* ViewModelsStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE7D294F3DAF00F4EDD8 /* ViewModelsStubs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		B69BCE74294F32E100F4EDD8 /* ReposListFailureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReposListFailureCell.xib; sourceTree = "<group>"; };
 		B69BCE78294F33A300F4EDD8 /* ReposListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListCell.swift; sourceTree = "<group>"; };
 		B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReposListCell.xib; sourceTree = "<group>"; };
+		B69BCE7D294F3DAF00F4EDD8 /* ViewModelsStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsStubs.swift; sourceTree = "<group>"; };
 		BB3E12E0BEC24BF1F8C6B53B /* Pods-Trending Repos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.debug.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.debug.xcconfig"; sourceTree = "<group>"; };
 		C44B33FB15256969625B8823 /* Pods-Trending Repos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.release.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.release.xcconfig"; sourceTree = "<group>"; };
 		EDEE9C806661035C4C633EED /* libPods-Trending Repos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trending Repos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,6 +312,7 @@
 		B69BCE5F294F2C3300F4EDD8 /* Trending ReposTests */ = {
 			isa = PBXGroup;
 			children = (
+				B69BCE7C294F3D9900F4EDD8 /* Models Stubs */,
 				B69BCE67294F2C6900F4EDD8 /* ReposListViewControllerTests.swift */,
 			);
 			path = "Trending ReposTests";
@@ -358,6 +361,14 @@
 				B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */,
 			);
 			path = "Repo Cell";
+			sourceTree = "<group>";
+		};
+		B69BCE7C294F3D9900F4EDD8 /* Models Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				B69BCE7D294F3DAF00F4EDD8 /* ViewModelsStubs.swift */,
+			);
+			path = "Models Stubs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,6 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69BCE7E294F3DAF00F4EDD8 /* ViewModelsStubs.swift in Sources */,
 				B69BCE68294F2C6900F4EDD8 /* ReposListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

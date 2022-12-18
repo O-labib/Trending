@@ -66,8 +66,8 @@ extension ReposListViewControllerTests {
     func testUpdateViewState_ShowNetworkErrorCell_WhenLoaded() {
         // Given
         let viewModel: [ReposListCell.ViewModel] = [
-            .init(repoTitle: "1"),
-            .init(repoTitle: "2")
+            .stubbed(title: "1"),
+            .stubbed(title: "2")
         ]
         let viewState: ReposListViewController.State = .loaded(viewModel: viewModel)
         
