@@ -11,4 +11,5 @@ protocol ReposListPresenterProtocol {
 }
 
 protocol ReposListViewProtocol where Self: AnyObject {
+    func updateViewState(_ state: ReposListViewController.State)
 }
