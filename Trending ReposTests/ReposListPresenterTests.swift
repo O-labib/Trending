@@ -110,6 +110,42 @@ extension ReposListPresenterTests {
 }
 
 extension ReposListPresenterTests {
+    func testCovertRepo_ToViewModel() {
+        // Given
+        let repo = Repo.stubbed()
+        
+        // When
+        let viewModel = presenter.convert(repo)
+        
+        // Then
+        XCTAssertEqual(
+            repo.owner.avatarUrl,
+            viewModel.ownerAvatarURL
+        )
+        XCTAssertEqual(
+            repo.owner.name,
+            viewModel.ownerName
+        )
+        XCTAssertEqual(
+            repo.name,
+            viewModel.repoTitle
+        )
+        XCTAssertEqual(
+            repo.description,
+            viewModel.repoDescription
+        )
+        XCTAssertEqual(
+            repo.language,
+            viewModel.repoLanguage
+        )
+        XCTAssertEqual(
+            String(repo.stargazersCount),
+            viewModel.repoStart
+        )
+    }
+}
+
+extension ReposListPresenterTests {
     class ViewControllerSpy: ReposListViewProtocol {
         var updatedViewStates: [ReposListViewController.State] = []
         
