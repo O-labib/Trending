@@ -7,19 +7,23 @@
 
 import Foundation
 
-struct Repo {
+struct Response: Equatable {
+    let repos: [Repo]
+}
+
+struct Repo: Equatable {
     let owner: Owner
     let name: String
     let description: String
     let language: String
     let stargazersCount: Int
     
-    struct Owner {
+    struct Owner: Equatable {
         let name: String
         let avatarUrl: String
     }
 }
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
     case unknown
 }

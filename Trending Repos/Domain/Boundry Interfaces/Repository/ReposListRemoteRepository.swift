@@ -8,4 +8,5 @@
 import Foundation
 
 protocol ReposListRemoteRepository {
+    func fetchRemoteRepos(_ completion: @escaping (Result<Response, NetworkError>) -> Void)
 }

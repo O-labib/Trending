@@ -7,10 +7,15 @@
 
 import Foundation
 
-class ReposListNetworkService: ReposListRemoteRepository {
+class ReposListNetworkService {
     let networkClient: NetworkClient
     
     init(networkClient: NetworkClient) {
         self.networkClient = networkClient
+    }
+}
+
+extension ReposListNetworkService: ReposListRemoteRepository {
+    func fetchRemoteRepos(_ completion: (Result<Response, NetworkError>) -> Void) {
     }
 }
