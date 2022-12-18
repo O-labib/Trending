@@ -9,4 +9,5 @@ import Foundation
 
 protocol ReposListLocalRepository {
     func localRepos() -> [Repo]
+    func storeRepos(_ repos: [Repo])
 }

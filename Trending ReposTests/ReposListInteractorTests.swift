@@ -58,6 +58,22 @@ extension ReposListInteractorTests {
             return XCTFail()
         }
     }
+    
+    func testFetchRemoteRepos_WhenSuccess_SaveReposToLocalStorage() {
+        // Given
+        let repos: [Repo] = [.stubbed()]
+        remoteRepositoryStub.remoteReposResponse = .success(.init(repos: repos))
+
+        // When
+        interactorClient.fetchRemoteRepos()
+        
+        // Then
+        XCTAssertEqual(
+            localRepositoryStub.storedRepos,
+            repos
+        )
+    }
+    
 }
 
 // MARK: - Cached & Available Repos Behavior
@@ -139,6 +155,11 @@ extension ReposListInteractorTests {
     }
     
     class ReposListLocalRepositoryStub: ReposListLocalRepository {
+        private(set) var storedRepos: [Repo]!
+        func storeRepos(_ repos: [Repo]) {
+            self.storedRepos = repos
+        }
+        
         var stubbedLocalRepos: [Repo]!
         
         func localRepos() -> [Repo] {

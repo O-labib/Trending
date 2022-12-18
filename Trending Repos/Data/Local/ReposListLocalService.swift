@@ -16,6 +16,8 @@ class ReposListLocalService {
 }
 
 extension ReposListLocalService: ReposListLocalRepository {
+    func storeRepos(_ repos: [Repo]) {
+    }
     func localRepos() -> [Repo] {
         fatalError()
     }

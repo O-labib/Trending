@@ -32,8 +32,11 @@ extension ReposListInteractor: ReposListUseCase {
     
     func fetchRemoteRepos(_ completion: @escaping (Result<[Repo], Error>) -> Void) {
         remoteRepository.fetchRemoteRepos { result in
+        remoteRepository.fetchRemoteRepos { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let response):
+                self.localRepository.storeRepos(response.repos)
                 completion(.success(response.repos))
             case .failure(let error):
                 completion(.failure(error))
