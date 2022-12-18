@@ -21,7 +21,7 @@ final class ReposListViewControllerTests: XCTestCase {
     }
 }
 
-// MARK: - Cells Dequeuing 
+// MARK: - Cells Dequeuing
 extension ReposListViewControllerTests {
     func testUpdateViewState_ShowShimmeringCells_WhenLoading() {
         // Given
@@ -65,7 +65,10 @@ extension ReposListViewControllerTests {
     
     func testUpdateViewState_ShowNetworkErrorCell_WhenLoaded() {
         // Given
-        let viewModel: [ReposListCell.ViewModel] = [.init(repoTitle: "title")]
+        let viewModel: [ReposListCell.ViewModel] = [
+            .init(repoTitle: "1"),
+            .init(repoTitle: "2")
+        ]
         let viewState: ReposListViewController.State = .loaded(viewModel: viewModel)
         
         // When
@@ -77,8 +80,18 @@ extension ReposListViewControllerTests {
             testViewController.tableView(tableView, numberOfRowsInSection: 0),
             viewModel.count
         )
-        XCTAssertTrue(
-            testViewController.tableView(tableView, cellForRowAt: .init(row: 0, section: 0)) is ReposListCell
-        )
+        
+        for i in 0..<viewModel.count {
+            let indexPath = IndexPath(row: i, section: 0)
+            
+            guard let repoListCell = testViewController.tableView(tableView, cellForRowAt: indexPath) as? ReposListCell else {
+                return XCTFail("Failed to dequeue repo cell")
+            }
+            
+            XCTAssertEqual(
+                repoListCell.viewModel,
+                viewModel[i]
+            )
+        }
     }
 }

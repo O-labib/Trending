@@ -8,7 +8,8 @@
 import UIKit
 
 class ReposListCell: UITableViewCell {
-
+    var viewModel: ViewModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -16,7 +17,7 @@ class ReposListCell: UITableViewCell {
 }
 
 extension ReposListCell {
-    struct ViewModel {
+    struct ViewModel: Equatable {
         let repoTitle: String
     }
 }

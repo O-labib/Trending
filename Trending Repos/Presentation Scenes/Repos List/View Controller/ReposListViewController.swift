@@ -52,6 +52,7 @@ extension ReposListViewController {
             return cell
         case .loaded(let viewModel):
             let cell = tableView.dequeueReusableCell(withType: ReposListCell.self, for: indexPath)
+            cell.viewModel = viewModel[indexPath.row]
             return cell
         }
     }
