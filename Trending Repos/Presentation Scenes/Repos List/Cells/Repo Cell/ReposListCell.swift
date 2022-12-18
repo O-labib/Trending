@@ -8,7 +8,11 @@
 import UIKit
 
 class ReposListCell: UITableViewCell {
-    var viewModel: ViewModel?
+    var viewModel: ViewModel? {
+        didSet {
+            configure()
+        }
+    }
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var ownerNameLabel: UILabel!
@@ -30,11 +34,28 @@ class ReposListCell: UITableViewCell {
         avatarImageView.setCircular()
         languageColoredView.setCircular()
     }
+    
+    private func configure() {
+        guard let viewModel else { return }
+        
+        ownerNameLabel.text = viewModel.ownerName
+        repoTitleLabel.text = viewModel.repoTitle
+        repoDescriptionLabel.text = viewModel.repoDescription
+        languageLabel.text = viewModel.repoLanguage
+        starsLabel.text = viewModel.repoStart
+        
+        detailStackView.isHidden = !viewModel.isExpanded
+    }
 }
 
 extension ReposListCell {
     struct ViewModel: Equatable {
+        let ownerAvatarURL: String
+        let ownerName: String
         let repoTitle: String
+        let repoDescription: String
+        let repoLanguage: String
+        let repoStart: String
         var isExpanded = false
     }
 }

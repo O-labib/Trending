@@ -14,8 +14,12 @@ extension ReposListCell.ViewModel {
         isExpanded: Bool = false
     ) -> Self {
         .init(
+            ownerAvatarURL: "avatar",
+            ownerName: "name",
             repoTitle: title,
-            isExpanded: isExpanded
+            repoDescription: "description",
+            repoLanguage: "langaue",
+            repoStart: "70"
         )
     }
 }

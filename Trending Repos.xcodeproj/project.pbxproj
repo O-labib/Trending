@@ -38,6 +38,7 @@
 		B69BCE7B294F33A300F4EDD8 /* ReposListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */; };
 		B69BCE7E294F3DAF00F4EDD8 /* ViewModelsStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE7D294F3DAF00F4EDD8 /* ViewModelsStubs.swift */; };
 		B69BCE80294F5EE900F4EDD8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE7F294F5EE900F4EDD8 /* UIView+Extensions.swift */; };
+		B69BCE82294F61CA00F4EDD8 /* ReposListCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE81294F61CA00F4EDD8 /* ReposListCellTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReposListCell.xib; sourceTree = "<group>"; };
 		B69BCE7D294F3DAF00F4EDD8 /* ViewModelsStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsStubs.swift; sourceTree = "<group>"; };
 		B69BCE7F294F5EE900F4EDD8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		B69BCE81294F61CA00F4EDD8 /* ReposListCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListCellTests.swift; sourceTree = "<group>"; };
 		BB3E12E0BEC24BF1F8C6B53B /* Pods-Trending Repos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.debug.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.debug.xcconfig"; sourceTree = "<group>"; };
 		C44B33FB15256969625B8823 /* Pods-Trending Repos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.release.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.release.xcconfig"; sourceTree = "<group>"; };
 		EDEE9C806661035C4C633EED /* libPods-Trending Repos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trending Repos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +318,7 @@
 			children = (
 				B69BCE7C294F3D9900F4EDD8 /* Models Stubs */,
 				B69BCE67294F2C6900F4EDD8 /* ReposListViewControllerTests.swift */,
+				B69BCE81294F61CA00F4EDD8 /* ReposListCellTests.swift */,
 			);
 			path = "Trending ReposTests";
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 			files = (
 				B69BCE7E294F3DAF00F4EDD8 /* ViewModelsStubs.swift in Sources */,
 				B69BCE68294F2C6900F4EDD8 /* ReposListViewControllerTests.swift in Sources */,
+				B69BCE82294F61CA00F4EDD8 /* ReposListCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
