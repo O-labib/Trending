@@ -15,7 +15,7 @@ class ReposListViewController: UITableViewController {
         super.viewDidLoad()
         
         registerCells()
-        
+        setupRefreshControl()
         presenter.loadAvailableRepos()
     }
     
@@ -25,6 +25,20 @@ class ReposListViewController: UITableViewController {
             ReposListFailureCell.self,
             ReposListCell.self
         )
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl = .init()
+        refreshControl?.addTarget(
+            self,
+            action: #selector(refresh),
+            for: .valueChanged
+        )
+        tableView.addSubview(refreshControl!)
+    }
+    
+    @objc private func refresh() {
+        presenter.refreshRepos()
     }
 }
 

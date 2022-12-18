@@ -9,6 +9,7 @@ import Foundation
 
 protocol ReposListPresenterProtocol {
     func loadAvailableRepos()
+    func refreshRepos()
 }
 
 protocol ReposListViewProtocol where Self: AnyObject {

@@ -139,14 +139,30 @@ extension ReposListViewControllerTests {
             1
         )
     }
+    
+    func testRefreshRepos_IsCalled_WhenTableViewPulled() {
+        // When
+        testViewController.refreshControl?.sendActions(for: .valueChanged)
+        
+        // Then
+        XCTAssertEqual(
+            presenterSpy.refreshReposCallCount,
+            1
+        )
+    }
 }
 
 extension ReposListViewControllerTests {
     class PresenterSpy: ReposListPresenterProtocol {
         var loadAvailableReposCallCount = 0
+        var refreshReposCallCount = 0
         
         func loadAvailableRepos() {
             loadAvailableReposCallCount += 1
+        }
+        
+        func refreshRepos() {
+            refreshReposCallCount += 1
         }
     }
 }
