@@ -15,6 +15,8 @@ class ReposListViewController: UITableViewController {
         super.viewDidLoad()
         
         registerCells()
+        
+        presenter.loadAvailableRepos()
     }
     
     private func registerCells() {

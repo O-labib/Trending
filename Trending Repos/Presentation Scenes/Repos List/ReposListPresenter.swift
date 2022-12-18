@@ -18,4 +18,6 @@ class ReposListPresenter {
 }
 
 extension ReposListPresenter: ReposListPresenterProtocol {
+    func loadAvailableRepos() {
+    }
 }

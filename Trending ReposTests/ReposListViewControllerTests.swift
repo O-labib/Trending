@@ -10,13 +10,17 @@ import XCTest
 
 final class ReposListViewControllerTests: XCTestCase {
     var testViewController: ReposListViewController!
+    var presenterSpy: PresenterSpy!
     
     override func setUpWithError() throws {
         testViewController = ReposListViewController()
+        presenterSpy = .init()
+        testViewController.presenter = presenterSpy
         testViewController.loadViewIfNeeded()
     }
 
     override func tearDownWithError() throws {
+        presenterSpy = nil
         testViewController = nil
     }
 }
@@ -126,3 +130,23 @@ extension ReposListViewControllerTests {
     }
 }
 
+// MARK: - Presenter Interaction
+extension ReposListViewControllerTests {
+    func testLoadAvailableRepos_IsCalled_WhenViewLoaded() {
+        // Then
+        XCTAssertEqual(
+            presenterSpy.loadAvailableReposCallCount,
+            1
+        )
+    }
+}
+
+extension ReposListViewControllerTests {
+    class PresenterSpy: ReposListPresenterProtocol {
+        var loadAvailableReposCallCount = 0
+        
+        func loadAvailableRepos() {
+            loadAvailableReposCallCount += 1
+        }
+    }
+}
