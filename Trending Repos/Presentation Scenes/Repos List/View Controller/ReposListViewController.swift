@@ -20,7 +20,8 @@ class ReposListViewController: UITableViewController {
     private func registerCells() {
         tableView.register(
             cellType: ReposListLoadingCell.self,
-            ReposListFailureCell.self
+            ReposListFailureCell.self,
+            ReposListCell.self
         )
     }
 }
@@ -34,6 +35,8 @@ extension ReposListViewController {
             return count
         case .failed:
             return 1
+        case .loaded(let viewModel):
+            return viewModel.count
         }
     }
     
@@ -46,6 +49,9 @@ extension ReposListViewController {
             return cell
         case .failed:
             let cell = tableView.dequeueReusableCell(withType: ReposListFailureCell.self, for: indexPath)
+            return cell
+        case .loaded(let viewModel):
+            let cell = tableView.dequeueReusableCell(withType: ReposListCell.self, for: indexPath)
             return cell
         }
     }
@@ -63,5 +69,6 @@ extension ReposListViewController {
         case idle
         case loading(count: Int)
         case failed
+        case loaded(viewModel: [ReposListCell.ViewModel])
     }
 }

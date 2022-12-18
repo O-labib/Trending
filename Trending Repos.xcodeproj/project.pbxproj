@@ -34,6 +34,8 @@
 		B69BCE71294F318100F4EDD8 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE70294F318100F4EDD8 /* UITableView+Extensions.swift */; };
 		B69BCE75294F32E100F4EDD8 /* ReposListFailureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE73294F32E100F4EDD8 /* ReposListFailureCell.swift */; };
 		B69BCE76294F32E100F4EDD8 /* ReposListFailureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B69BCE74294F32E100F4EDD8 /* ReposListFailureCell.xib */; };
+		B69BCE7A294F33A300F4EDD8 /* ReposListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE78294F33A300F4EDD8 /* ReposListCell.swift */; };
+		B69BCE7B294F33A300F4EDD8 /* ReposListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		B69BCE70294F318100F4EDD8 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		B69BCE73294F32E100F4EDD8 /* ReposListFailureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListFailureCell.swift; sourceTree = "<group>"; };
 		B69BCE74294F32E100F4EDD8 /* ReposListFailureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReposListFailureCell.xib; sourceTree = "<group>"; };
+		B69BCE78294F33A300F4EDD8 /* ReposListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListCell.swift; sourceTree = "<group>"; };
+		B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReposListCell.xib; sourceTree = "<group>"; };
 		BB3E12E0BEC24BF1F8C6B53B /* Pods-Trending Repos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.debug.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.debug.xcconfig"; sourceTree = "<group>"; };
 		C44B33FB15256969625B8823 /* Pods-Trending Repos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.release.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.release.xcconfig"; sourceTree = "<group>"; };
 		EDEE9C806661035C4C633EED /* libPods-Trending Repos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trending Repos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -314,6 +318,7 @@
 		B69BCE69294F308C00F4EDD8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B69BCE77294F339200F4EDD8 /* Repo Cell */,
 				B69BCE72294F32CB00F4EDD8 /* Failure Cell */,
 				B69BCE6A294F308F00F4EDD8 /* Loading Cell */,
 			);
@@ -344,6 +349,15 @@
 				B69BCE74294F32E100F4EDD8 /* ReposListFailureCell.xib */,
 			);
 			path = "Failure Cell";
+			sourceTree = "<group>";
+		};
+		B69BCE77294F339200F4EDD8 /* Repo Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B69BCE78294F33A300F4EDD8 /* ReposListCell.swift */,
+				B69BCE79294F33A300F4EDD8 /* ReposListCell.xib */,
+			);
+			path = "Repo Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +446,7 @@
 				B69BCE6E294F30AB00F4EDD8 /* ReposListLoadingCell.xib in Resources */,
 				B69BCE20294F1E1400F4EDD8 /* LaunchScreen.storyboard in Resources */,
 				B69BCE31294F22CC00F4EDD8 /* ReposListViewController.xib in Resources */,
+				B69BCE7B294F33A300F4EDD8 /* ReposListCell.xib in Resources */,
 				B69BCE1D294F1E1400F4EDD8 /* Assets.xcassets in Resources */,
 				B69BCE76294F32E100F4EDD8 /* ReposListFailureCell.xib in Resources */,
 			);
@@ -481,6 +496,7 @@
 				B69BCE75294F32E100F4EDD8 /* ReposListFailureCell.swift in Sources */,
 				B69BCE56294F272600F4EDD8 /* ReposListSceneConfigurator.swift in Sources */,
 				B69BCE33294F22DE00F4EDD8 /* ReposListProtocols.swift in Sources */,
+				B69BCE7A294F33A300F4EDD8 /* ReposListCell.swift in Sources */,
 				B69BCE49294F25DD00F4EDD8 /* ReposListLocalService.swift in Sources */,
 				B69BCE30294F22CC00F4EDD8 /* ReposListViewController.swift in Sources */,
 				B69BCE6D294F30AB00F4EDD8 /* ReposListLoadingCell.swift in Sources */,

@@ -60,4 +60,22 @@ final class ReposListViewControllerTests: XCTestCase {
         )
     }
     
+    func testUpdateViewState_ShowNetworkErrorCell_WhenLoaded() {
+        // Given
+        let viewModel: [ReposListCell.ViewModel] = [.init(repoTitle: "title")]
+        let viewState: ReposListViewController.State = .loaded(viewModel: viewModel)
+        
+        // When
+        testViewController.updateViewState(viewState)
+        
+        // Then
+        let tableView = testViewController.tableView!
+        XCTAssertEqual(
+            testViewController.tableView(tableView, numberOfRowsInSection: 0),
+            viewModel.count
+        )
+        XCTAssertTrue(
+            testViewController.tableView(tableView, cellForRowAt: .init(row: 0, section: 0)) is ReposListCell
+        )
+    }
 }
