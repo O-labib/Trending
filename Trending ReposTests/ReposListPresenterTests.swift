@@ -37,7 +37,11 @@ extension ReposListPresenterTests {
         
         // Then
         XCTAssertEqual(
-            viewControllerSpy.updatedViewState,
+            viewControllerSpy.updatedViewStates.first,
+            .loading(count: 10)
+        )
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewStates.last,
             .failed
         )
     }
@@ -53,7 +57,11 @@ extension ReposListPresenterTests {
         // Then
         let cellsViewModels: [ReposListCell.ViewModel] = repos.map(presenter.convert(_:))
         XCTAssertEqual(
-            viewControllerSpy.updatedViewState,
+            viewControllerSpy.updatedViewStates.first,
+            .loading(count: 10)
+        )
+        XCTAssertEqual(
+            viewControllerSpy.updatedViewStates.last,
             .loaded(viewModel: cellsViewModels)
         )
     }
@@ -61,10 +69,10 @@ extension ReposListPresenterTests {
 
 extension ReposListPresenterTests {
     class ViewControllerSpy: ReposListViewProtocol {
-        var updatedViewState: ReposListViewController.State!
+        var updatedViewStates: [ReposListViewController.State] = []
         
         func updateViewState(_ state: Trending_Repos.ReposListViewController.State) {
-            updatedViewState = state
+            updatedViewStates.append(state)
         }
     }
     

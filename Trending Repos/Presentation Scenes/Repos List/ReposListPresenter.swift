@@ -19,6 +19,8 @@ class ReposListPresenter {
 
 extension ReposListPresenter: ReposListPresenterProtocol {
     func loadAvailableRepos() {
+        presentLoadingState()
+        
         reposListUseCase.fetchAvailableRepos { [weak self] result in
             guard let self else { return }
             switch result {
@@ -49,6 +51,10 @@ extension ReposListPresenter: ReposListPresenterProtocol {
 }
 
 private extension ReposListPresenter {
+    func presentLoadingState() {
+        view?.updateViewState(.loading(count: 10))
+    }
+    
     func presentErrorState() {
         view?.updateViewState(.failed)
     }
