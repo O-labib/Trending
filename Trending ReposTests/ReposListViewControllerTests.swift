@@ -19,7 +19,10 @@ final class ReposListViewControllerTests: XCTestCase {
     override func tearDownWithError() throws {
         testViewController = nil
     }
-    
+}
+
+// MARK: - Cells Dequeuing 
+extension ReposListViewControllerTests {
     func testUpdateViewState_ShowShimmeringCells_WhenLoading() {
         // Given
         let numberOfLoadingCells = 5
