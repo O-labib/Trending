@@ -8,4 +8,5 @@
 import Foundation
 
 protocol ReposListLocalRepository {
+    func localRepos() -> [Repo]
 }

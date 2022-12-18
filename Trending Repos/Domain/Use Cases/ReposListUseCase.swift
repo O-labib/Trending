@@ -24,6 +24,10 @@ class ReposListInteractor {
 
 extension ReposListInteractor: ReposListUseCase {
     func fetchAvailableRepos(_ completion: @escaping (Result<[Repo], Error>) -> Void) {
+        guard !localRepository.localRepos().isEmpty else {
+            return fetchRemoteRepos(completion)
+        }
+        completion(.success(localRepository.localRepos()))
     }
     
     func fetchRemoteRepos(_ completion: @escaping (Result<[Repo], Error>) -> Void) {

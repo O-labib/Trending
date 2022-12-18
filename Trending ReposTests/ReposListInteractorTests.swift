@@ -29,6 +29,7 @@ final class ReposListInteractorTests: XCTestCase {
     }
 }
 
+// MARK: - Remote Repos Behavior
 extension ReposListInteractorTests {
     func testFetchRemoteRepos_WhenSuccess() {
         // Given
@@ -58,6 +59,54 @@ extension ReposListInteractorTests {
         }
     }
 }
+
+// MARK: - Cached & Available Repos Behavior
+extension ReposListInteractorTests {
+    func testFetchAvailableRepos_ReturnLocalReposWhenNotEmpty() {
+        // Given
+        let repos = [Repo.stubbed(), .stubbed()]
+        localRepositoryStub.stubbedLocalRepos = repos
+        
+        // When
+        interactorClient.fetchAvailableRepos()
+        
+        // Then
+        guard case .success(repos) = interactorClient.availableReposResponse else {
+            return XCTFail()
+        }
+    }
+    
+    func testFetchAvailableRepos_ReturnRemoteReposWhenLocalReposEmpty_Successfully() {
+        // Given
+        let repos: [Repo] = [.stubbed()]
+        remoteRepositoryStub.remoteReposResponse = .success(.init(repos: repos))
+        localRepositoryStub.stubbedLocalRepos = []
+        
+        // When
+        interactorClient.fetchAvailableRepos()
+        
+        // Then
+        guard case .success(repos) = interactorClient.availableReposResponse else {
+            return XCTFail()
+        }
+    }
+    
+    func testFetchAvailableRepos_ReturnRemoteReposWhenLocalReposEmpty_WhenFailure() {
+        // Given
+        let error = NetworkError.unknown
+        remoteRepositoryStub.remoteReposResponse = .failure(error)
+        localRepositoryStub.stubbedLocalRepos = []
+        
+        // When
+        interactorClient.fetchAvailableRepos()
+        
+        // Then
+        guard case .failure(NetworkError.unknown) = interactorClient.availableReposResponse else {
+            return XCTFail()
+        }
+    }
+}
+
 extension ReposListInteractorTests {
     class FakeInteractorClient {
         let interactor: ReposListInteractor
@@ -65,6 +114,14 @@ extension ReposListInteractorTests {
         init(interactor: ReposListInteractor) {
             self.interactor = interactor
         }
+        
+        var availableReposResponse: Result<[Repo], Error>!
+        func fetchAvailableRepos() {
+            interactor.fetchAvailableRepos { [weak self] result in
+                self?.availableReposResponse = result
+            }
+        }
+        
         var remoteReposResponse: Result<[Repo], Error>!
         func fetchRemoteRepos() {
             interactor.fetchRemoteRepos { [weak self]  result in
@@ -82,5 +139,11 @@ extension ReposListInteractorTests {
     }
     
     class ReposListLocalRepositoryStub: ReposListLocalRepository {
+        var stubbedLocalRepos: [Repo]!
+        
+        func localRepos() -> [Repo] {
+            stubbedLocalRepos
+        }
+        
     }
 }
