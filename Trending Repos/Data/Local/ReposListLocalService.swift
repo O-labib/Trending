@@ -17,8 +17,9 @@ class ReposListLocalService {
 
 extension ReposListLocalService: ReposListLocalRepository {
     func storeRepos(_ repos: [Repo]) {
+        try? localClient.store(repos)
     }
     func localRepos() -> [Repo] {
-        fatalError()
+        (try? localClient.fetch()) ?? []
     }
 }

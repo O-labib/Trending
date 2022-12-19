@@ -6,4 +6,6 @@
 //
 
 protocol LocalStorageClient {
+    func store<T: Encodable>(_ value: T) throws
+    func fetch<T: Decodable>() throws -> T
 }
