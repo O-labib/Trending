@@ -42,6 +42,10 @@
 		B69D5F48294FB8CE0058EEB1 /* ReposListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F47294FB8CE0058EEB1 /* ReposListPresenterTests.swift */; };
 		B69D5F4A294FBB6D0058EEB1 /* DomainModelsStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F49294FBB6D0058EEB1 /* DomainModelsStubs.swift */; };
 		B69D5F4C294FC6620058EEB1 /* ReposListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F4B294FC6620058EEB1 /* ReposListInteractorTests.swift */; };
+		B69D5F4F294FE1650058EEB1 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F4E294FE1650058EEB1 /* EndPoints.swift */; };
+		B69D5F51294FE1E00058EEB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F50294FE1E00058EEB1 /* Constants.swift */; };
+		B69D5F53294FE7D90058EEB1 /* ReposListLocalServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F52294FE7D90058EEB1 /* ReposListLocalServiceTests.swift */; };
+		B69D5F55294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F54294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +96,10 @@
 		B69D5F47294FB8CE0058EEB1 /* ReposListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListPresenterTests.swift; sourceTree = "<group>"; };
 		B69D5F49294FBB6D0058EEB1 /* DomainModelsStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainModelsStubs.swift; sourceTree = "<group>"; };
 		B69D5F4B294FC6620058EEB1 /* ReposListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListInteractorTests.swift; sourceTree = "<group>"; };
+		B69D5F4E294FE1650058EEB1 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		B69D5F50294FE1E00058EEB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B69D5F52294FE7D90058EEB1 /* ReposListLocalServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListLocalServiceTests.swift; sourceTree = "<group>"; };
+		B69D5F54294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListNetworkServiceTests.swift; sourceTree = "<group>"; };
 		BB3E12E0BEC24BF1F8C6B53B /* Pods-Trending Repos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.debug.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.debug.xcconfig"; sourceTree = "<group>"; };
 		C44B33FB15256969625B8823 /* Pods-Trending Repos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.release.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.release.xcconfig"; sourceTree = "<group>"; };
 		EDEE9C806661035C4C633EED /* libPods-Trending Repos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trending Repos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +287,7 @@
 		B69BCE45294F258800F4EDD8 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				B69D5F4D294FE1550058EEB1 /* End Points */,
 				B69BCE46294F259400F4EDD8 /* ReposListNetworkService.swift */,
 			);
 			path = Remote;
@@ -327,6 +336,8 @@
 				B69BCE81294F61CA00F4EDD8 /* ReposListCellTests.swift */,
 				B69D5F47294FB8CE0058EEB1 /* ReposListPresenterTests.swift */,
 				B69D5F4B294FC6620058EEB1 /* ReposListInteractorTests.swift */,
+				B69D5F52294FE7D90058EEB1 /* ReposListLocalServiceTests.swift */,
+				B69D5F54294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift */,
 			);
 			path = "Trending ReposTests";
 			sourceTree = "<group>";
@@ -384,6 +395,15 @@
 				B69D5F49294FBB6D0058EEB1 /* DomainModelsStubs.swift */,
 			);
 			path = "Models Stubs";
+			sourceTree = "<group>";
+		};
+		B69D5F4D294FE1550058EEB1 /* End Points */ = {
+			isa = PBXGroup;
+			children = (
+				B69D5F4E294FE1650058EEB1 /* EndPoints.swift */,
+				B69D5F50294FE1E00058EEB1 /* Constants.swift */,
+			);
+			path = "End Points";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,11 +554,13 @@
 				B69BCE39294F23F400F4EDD8 /* Entities.swift in Sources */,
 				B69BCE4E294F263A00F4EDD8 /* LocalStorageClient.swift in Sources */,
 				B69BCE4C294F262300F4EDD8 /* NetworkClient.swift in Sources */,
+				B69D5F4F294FE1650058EEB1 /* EndPoints.swift in Sources */,
 				B69BCE35294F234600F4EDD8 /* ReposListPresenter.swift in Sources */,
 				B69BCE71294F318100F4EDD8 /* UITableView+Extensions.swift in Sources */,
 				B69BCE14294F1E1100F4EDD8 /* AppDelegate.swift in Sources */,
 				B69BCE42294F24E300F4EDD8 /* ReposListLocalRepository.swift in Sources */,
 				B69BCE3C294F240F00F4EDD8 /* ReposListUseCase.swift in Sources */,
+				B69D5F51294FE1E00058EEB1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +568,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69D5F55294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift in Sources */,
 				B69D5F4C294FC6620058EEB1 /* ReposListInteractorTests.swift in Sources */,
+				B69D5F53294FE7D90058EEB1 /* ReposListLocalServiceTests.swift in Sources */,
 				B69D5F48294FB8CE0058EEB1 /* ReposListPresenterTests.swift in Sources */,
 				B69BCE7E294F3DAF00F4EDD8 /* ViewModelsStubs.swift in Sources */,
 				B69D5F4A294FBB6D0058EEB1 /* DomainModelsStubs.swift in Sources */,

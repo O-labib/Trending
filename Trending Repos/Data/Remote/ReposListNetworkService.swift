@@ -16,6 +16,9 @@ class ReposListNetworkService {
 }
 
 extension ReposListNetworkService: ReposListRemoteRepository {
-    func fetchRemoteRepos(_ completion: (Result<Response, NetworkError>) -> Void) {
+    func fetchRemoteRepos(_ completion: @escaping (Result<Response, Error>) -> Void) {
+        guard let request = try?  EndPoints.trendingRepos.asURLRequest() else { return }
+        
+        networkClient.perform(request: request, completion: completion)
     }
 }
