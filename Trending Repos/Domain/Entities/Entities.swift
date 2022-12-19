@@ -16,15 +16,15 @@ struct Response: Equatable, Decodable {
 }
 
 struct Repo: Equatable, Codable {
-    let owner: Owner
-    let name: String
-    let description: String
-    let language: String
-    let stargazersCount: Int
+    let owner: Owner?
+    let name: String?
+    let description: String?
+    let language: String?
+    let stargazersCount: Int?
     
     struct Owner: Equatable, Codable {
-        let name: String
-        let avatarUrl: String
+        let name: String?
+        let avatarUrl: String?
         
         
         enum CodingKeys: String, CodingKey {

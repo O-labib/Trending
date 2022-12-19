@@ -50,12 +50,12 @@ class ReposListCell: UITableViewCell {
 
 extension ReposListCell {
     struct ViewModel: Equatable {
-        let ownerAvatarURL: String
-        let ownerName: String
-        let repoTitle: String
-        let repoDescription: String
-        let repoLanguage: String
-        let repoStart: String
+        let ownerAvatarURL: String?
+        let ownerName: String?
+        let repoTitle: String?
+        let repoDescription: String?
+        let repoLanguage: String?
+        let repoStart: String?
         var isExpanded = false
     }
 }

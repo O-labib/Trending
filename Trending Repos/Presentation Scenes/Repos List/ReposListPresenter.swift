@@ -52,12 +52,12 @@ extension ReposListPresenter: ReposListPresenterProtocol {
     
     func convert(_ repo: Repo) -> ReposListCell.ViewModel {
         .init(
-            ownerAvatarURL: repo.owner.avatarUrl,
-            ownerName: repo.owner.name,
+            ownerAvatarURL: repo.owner?.avatarUrl,
+            ownerName: repo.owner?.name,
             repoTitle: repo.name,
             repoDescription: repo.description,
             repoLanguage: repo.language,
-            repoStart: String(repo.stargazersCount)
+            repoStart: repo.stargazersCount != nil ? String(repo.stargazersCount!) : nil
         )
     }
 }
