@@ -18,18 +18,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="550" height="349"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9eI-E7-AUS">
-                        <rect key="frame" x="36" y="27" width="478" height="295"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="9eI-E7-AUS">
+                        <rect key="frame" x="16" y="16" width="518" height="317"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OX-Bz-EWW" customClass="LottieAnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="0.0" width="478" height="255"/>
+                                <rect key="frame" x="0.0" y="0.0" width="518" height="255"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="networkErrorLottieAnimation"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4n-Pz-v7D">
-                                <rect key="frame" x="0.0" y="285" width="478" height="10"/>
+                                <rect key="frame" x="0.0" y="291" width="518" height="26"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <buttonConfiguration key="configuration" style="plain" title="RETRY"/>
                                 <connections>
@@ -37,13 +37,16 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="U4n-Pz-v7D" firstAttribute="leading" secondItem="9eI-E7-AUS" secondAttribute="leading" id="0si-j2-1aS"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9eI-E7-AUS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="Lbg-nU-wBL"/>
+                    <constraint firstItem="9eI-E7-AUS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Ldz-1b-Hkp"/>
+                    <constraint firstItem="9eI-E7-AUS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="PTK-lI-Nef"/>
                     <constraint firstItem="9eI-E7-AUS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cN8-G6-k4y"/>
                     <constraint firstItem="9eI-E7-AUS" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="eTf-Sc-zga"/>
-                    <constraint firstItem="9eI-E7-AUS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="lRF-Ka-jwf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
