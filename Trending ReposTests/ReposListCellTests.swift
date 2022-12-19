@@ -27,7 +27,7 @@ final class ReposListCellTests: XCTestCase {
         cell.viewModel = viewModel
         
         // Then
-        let expectationsPairs: [(String?, String)] = [
+        let expectationsPairs: [(String?, String?)] = [
             (cell.ownerNameLabel.text, viewModel.ownerName),
             (cell.repoTitleLabel.text, viewModel.repoTitle),
             (cell.repoDescriptionLabel.text, viewModel.repoDescription),

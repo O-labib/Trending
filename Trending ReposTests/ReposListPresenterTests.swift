@@ -119,11 +119,11 @@ extension ReposListPresenterTests {
         
         // Then
         XCTAssertEqual(
-            repo.owner.avatarUrl,
+            repo.owner?.avatarUrl,
             viewModel.ownerAvatarURL
         )
         XCTAssertEqual(
-            repo.owner.name,
+            repo.owner?.name,
             viewModel.ownerName
         )
         XCTAssertEqual(
@@ -139,7 +139,7 @@ extension ReposListPresenterTests {
             viewModel.repoLanguage
         )
         XCTAssertEqual(
-            String(repo.stargazersCount),
+            String(repo.stargazersCount ?? 0),
             viewModel.repoStart
         )
     }
