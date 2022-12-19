@@ -1,20 +1,24 @@
 PODS:
   - Kingfisher (7.4.1)
   - lottie-ios (3.5.0)
+  - UIView-Shimmer (1.0.4)
 
 DEPENDENCIES:
   - Kingfisher (~> 7.0)
   - lottie-ios
+  - UIView-Shimmer (~> 1.0)
 
 SPEC REPOS:
   trunk:
     - Kingfisher
     - lottie-ios
+    - UIView-Shimmer
 
 SPEC CHECKSUMS:
   Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
+  UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: cc2fabef5b328d491eaf88c39345ba7d3045bc16
+PODFILE CHECKSUM: ecda60ff4d954e7b80f1f46e51a48cf99d42a32f
 
 COCOAPODS: 1.11.3
