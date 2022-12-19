@@ -11,23 +11,23 @@ import Lottie
 class ReposListFailureCell: UITableViewCell {
     @IBOutlet weak var animationView: LottieAnimationView!
     @IBOutlet weak var retryButton: UIButton!
-    
+
     var retryAction: (() -> Void)?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        
+
         animationView.loopMode = .loop
         animationView.play()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         retryButton.layer.borderWidth = 1
         retryButton.layer.borderColor = UIColor.systemGreen.cgColor
     }
-    
+
     @IBAction func retryAction(_ sender: Any) {
         retryAction?()
     }

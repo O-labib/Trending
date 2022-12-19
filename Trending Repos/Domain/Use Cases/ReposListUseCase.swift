@@ -15,7 +15,7 @@ protocol ReposListUseCase {
 class ReposListInteractor {
     let remoteRepository: ReposListRemoteRepository
     let localRepository: ReposListLocalRepository
-    
+
     init(remoteRepository: ReposListRemoteRepository, localRepository: ReposListLocalRepository) {
         self.remoteRepository = remoteRepository
         self.localRepository = localRepository
@@ -29,7 +29,7 @@ extension ReposListInteractor: ReposListUseCase {
         }
         completion(.success(localRepository.localRepos()))
     }
-    
+
     func fetchRemoteRepos(_ completion: @escaping (Result<[Repo], Error>) -> Void) {
         remoteRepository.fetchRemoteRepos { [weak self] result in
             guard let self else { return }
@@ -42,7 +42,7 @@ extension ReposListInteractor: ReposListUseCase {
                 guard localRepos.isEmpty else {
                     return completion(.success(localRepos))
                 }
-                
+
                 completion(.failure(error))
             }
         }

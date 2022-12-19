@@ -16,10 +16,10 @@ class ReposListLoadingCell: UITableViewCell, ShimmeringViewProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        
+
         setTemplateWithSubviews(true, viewBackgroundColor: .secondarySystemBackground)
     }
-    
+
     var shimmeringAnimatedItems: [UIView] {
         [
             avatarView,
@@ -27,10 +27,10 @@ class ReposListLoadingCell: UITableViewCell, ShimmeringViewProtocol {
             descriptionView
         ]
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         avatarView.setCircular()
     }
 }

@@ -11,7 +11,7 @@ enum ClientsConfigurator {
     static func configuredNetworkClient() -> NetworkClient {
         return URLSession.shared
     }
-    
+
     static func configuredLocalStorageClient() -> LocalStorageClient {
         return UserDefaults.standard
     }

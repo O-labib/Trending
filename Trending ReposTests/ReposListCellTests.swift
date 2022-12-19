@@ -22,17 +22,17 @@ final class ReposListCellTests: XCTestCase {
     func testConfigureCellWithViewModel() {
         // Given
         let viewModel = ReposListCell.ViewModel.stubbed()
-        
+
         // When
         cell.viewModel = viewModel
-        
+
         // Then
         let expectationsPairs: [(String?, String?)] = [
             (cell.ownerNameLabel.text, viewModel.ownerName),
             (cell.repoTitleLabel.text, viewModel.repoTitle),
             (cell.repoDescriptionLabel.text, viewModel.repoDescription),
             (cell.languageLabel.text, viewModel.repoLanguage),
-            (cell.starsLabel.text, viewModel.repoStart),
+            (cell.starsLabel.text, viewModel.repoStart)
         ]
         expectationsPairs.forEach { actualResult, expectedResult in
             XCTAssertEqual(
@@ -41,18 +41,18 @@ final class ReposListCellTests: XCTestCase {
             )
         }
     }
-    
+
     func testExpandCollapseBehavior() {
         // Given
         let viewModels: [ReposListCell.ViewModel] = [
             .stubbed(isExpanded: true),
             .stubbed(isExpanded: false)
         ]
-        
+
         for viewModel in viewModels {
             // When
             cell.viewModel = viewModel
-            
+
             // Then
             XCTAssertEqual(
                 cell.detailStackView.isHidden,

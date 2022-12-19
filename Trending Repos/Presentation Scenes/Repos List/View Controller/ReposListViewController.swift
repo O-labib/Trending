@@ -10,16 +10,16 @@ import UIKit
 class ReposListViewController: UITableViewController {
     var presenter: ReposListPresenterProtocol!
     var state = State.idle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "Trending"
         registerCells()
         setupRefreshControl()
         presenter.loadAvailableRepos()
     }
-    
+
     private func registerCells() {
         tableView.register(
             cellType: ReposListLoadingCell.self,
@@ -27,7 +27,7 @@ class ReposListViewController: UITableViewController {
             ReposListCell.self
         )
     }
-    
+
     private func setupRefreshControl() {
         refreshControl = .init()
         refreshControl?.addTarget(
@@ -37,7 +37,7 @@ class ReposListViewController: UITableViewController {
         )
         tableView.addSubview(refreshControl!)
     }
-    
+
     @objc private func refresh() {
         presenter.refreshRepos()
     }
@@ -56,7 +56,7 @@ extension ReposListViewController {
             return viewModel.count
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch state {
         case .idle:
@@ -85,7 +85,7 @@ extension ReposListViewController {
         }
         viewModel[indexPath.row].isExpanded.toggle()
         self.state = .loaded(viewModel: viewModel)
-        
+
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
@@ -94,11 +94,11 @@ extension ReposListViewController: ReposListViewProtocol {
     func updateViewState(_ state: State) {
         func updateUIComponents() {
             self.refreshControl?.endRefreshing()
-            
+
             self.state = state
             self.tableView.reloadData()
         }
-        
+
         /// while testing
         if Thread.isMainThread {
             updateUIComponents()

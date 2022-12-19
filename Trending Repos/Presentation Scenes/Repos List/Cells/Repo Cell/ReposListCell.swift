@@ -13,7 +13,7 @@ class ReposListCell: UITableViewCell {
             configure()
         }
     }
-    
+
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var ownerNameLabel: UILabel!
     @IBOutlet weak var repoTitleLabel: UILabel!
@@ -27,24 +27,24 @@ class ReposListCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         avatarImageView.setCircular()
         languageColoredView.setCircular()
     }
-    
+
     private func configure() {
         guard let viewModel else { return }
-        
+
         avatarImageView.load(from: viewModel.ownerAvatarURL)
         ownerNameLabel.text = viewModel.ownerName
         repoTitleLabel.text = viewModel.repoTitle
         repoDescriptionLabel.text = viewModel.repoDescription
         languageLabel.text = viewModel.repoLanguage
         starsLabel.text = viewModel.repoStart
-        
+
         detailStackView.isHidden = !viewModel.isExpanded
     }
 }

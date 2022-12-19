@@ -9,7 +9,7 @@ import Foundation
 
 class ReposListNetworkService {
     let networkClient: NetworkClient
-    
+
     init(networkClient: NetworkClient) {
         self.networkClient = networkClient
     }
@@ -18,7 +18,7 @@ class ReposListNetworkService {
 extension ReposListNetworkService: ReposListRemoteRepository {
     func fetchRemoteRepos(_ completion: @escaping (Result<Response, Error>) -> Void) {
         guard let request = try?  EndPoints.trendingRepos.asURLRequest() else { return }
-        
+
         networkClient.perform(request: request, completion: completion)
     }
 }

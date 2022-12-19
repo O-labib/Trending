@@ -9,7 +9,7 @@ import Foundation
 
 class ReposListLocalService {
     let localClient: LocalStorageClient
-    
+
     init(localClient: LocalStorageClient) {
         self.localClient = localClient
     }

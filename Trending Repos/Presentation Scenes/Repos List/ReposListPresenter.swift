@@ -10,7 +10,7 @@ import Foundation
 class ReposListPresenter {
     weak var view: ReposListViewProtocol?
     let reposListUseCase: ReposListUseCase
-    
+
     init(view: ReposListViewProtocol?, reposListUseCase: ReposListUseCase) {
         self.view = view
         self.reposListUseCase = reposListUseCase
@@ -20,7 +20,7 @@ class ReposListPresenter {
 extension ReposListPresenter: ReposListPresenterProtocol {
     func loadAvailableRepos() {
         presentLoadingState()
-        
+
         reposListUseCase.fetchAvailableRepos { [weak self] result in
             guard let self else { return }
             switch result {
@@ -31,10 +31,10 @@ extension ReposListPresenter: ReposListPresenterProtocol {
             }
         }
     }
-    
+
     func refreshRepos() {
         presentLoadingState()
-        
+
         reposListUseCase.fetchRemoteRepos { [weak self] result in
             guard let self else { return }
             switch result {
@@ -49,7 +49,7 @@ extension ReposListPresenter: ReposListPresenterProtocol {
     func reloadRepos() {
         loadAvailableRepos()
     }
-    
+
     func convert(_ repo: Repo) -> ReposListCell.ViewModel {
         .init(
             ownerAvatarURL: repo.owner?.avatarUrl,
@@ -66,14 +66,14 @@ private extension ReposListPresenter {
     func presentLoadingState() {
         view?.updateViewState(.loading(count: 10))
     }
-    
+
     func presentErrorState() {
         view?.updateViewState(.failed)
     }
-    
+
     func presentLoadedState(_ repos: [Repo]) {
         let viewModels = repos.map(convert(_:))
-        
+
         view?.updateViewState(.loaded(viewModel: viewModels))
     }
 }

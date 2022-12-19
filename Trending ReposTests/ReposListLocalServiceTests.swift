@@ -11,7 +11,7 @@ import XCTest
 final class ReposListLocalServiceTests: XCTestCase {
     var localService: ReposListLocalService!
     var clientSpy: LocalStorageClientSpy<[Repo]>!
-    
+
     override func setUpWithError() throws {
         clientSpy = .init()
         localService = .init(localClient: clientSpy)
@@ -27,10 +27,10 @@ extension ReposListLocalServiceTests {
     func testStoreRepos_SaveThemLocally() {
         // Given
         let repos = [Repo.stubbed()]
-        
+
         // When
         localService.storeRepos(repos)
-        
+
         // Then
         XCTAssertEqual(
             localService.localRepos(),
@@ -42,12 +42,12 @@ extension ReposListLocalServiceTests {
 extension ReposListLocalServiceTests {
     class LocalStorageClientSpy<D: Codable>: LocalStorageClient {
         private var storage: D!
-        
-        func store<T>(_ value: T) throws where T : Encodable {
+
+        func store<T>(_ value: T) throws where T: Encodable {
             self.storage = value as? D
         }
-        
-        func fetch<T>() throws -> T where T : Decodable {
+
+        func fetch<T>() throws -> T where T: Decodable {
             storage as! T
         }
     }

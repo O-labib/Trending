@@ -13,7 +13,7 @@ extension UIImageView {
         guard let url, let imageURL = URL(string: url) else {
             return
         }
-        
+
         kf.setImage(with: imageURL, placeholder: UIImage(named: "Placeholder"))
     }
 }

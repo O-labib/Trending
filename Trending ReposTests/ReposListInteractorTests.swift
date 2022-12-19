@@ -13,7 +13,7 @@ final class ReposListInteractorTests: XCTestCase {
     var interactorClient: FakeInteractorClient!
     var remoteRepositoryStub: ReposListRemoteRepositoryStub!
     var localRepositoryStub: ReposListLocalRepositoryStub!
-    
+
     override func setUpWithError() throws {
         remoteRepositoryStub = .init()
         localRepositoryStub = .init()
@@ -38,28 +38,28 @@ extension ReposListInteractorTests {
 
         // When
         interactorClient.fetchRemoteRepos()
-        
+
         // Then
         guard case .success(repos) = interactorClient.remoteReposResponse else {
             return XCTFail()
         }
     }
-    
+
     func testFetchRemoteRepos_WhenFailure() {
         // Given
         let error = NetworkError.unknown
         remoteRepositoryStub.remoteReposResponse = .failure(error)
         localRepositoryStub.stubbedLocalRepos = []
-        
+
         // When
         interactorClient.fetchRemoteRepos()
-        
+
         // Then
         guard case .failure(NetworkError.unknown) = interactorClient.remoteReposResponse else {
             return XCTFail()
         }
     }
-    
+
     func testFetchRemoteRepos_WhenSuccess_SaveReposToLocalStorage() {
         // Given
         let repos: [Repo] = [.stubbed()]
@@ -67,24 +67,24 @@ extension ReposListInteractorTests {
 
         // When
         interactorClient.fetchRemoteRepos()
-        
+
         // Then
         XCTAssertEqual(
             localRepositoryStub.storedRepos,
             repos
         )
     }
-    
+
     func testFetchRemoteRepos_WhenFailure_ReturnLocalReposIfNotEmpty() {
         // Given
         let error = NetworkError.unknown
         remoteRepositoryStub.remoteReposResponse = .failure(error)
         let localRepos = [Repo.stubbed()]
         localRepositoryStub.stubbedLocalRepos = localRepos
-        
+
         // When
         interactorClient.fetchRemoteRepos()
-        
+
         // Then
         guard case .success(localRepos) = interactorClient.remoteReposResponse else {
             return XCTFail()
@@ -98,40 +98,40 @@ extension ReposListInteractorTests {
         // Given
         let repos = [Repo.stubbed(), .stubbed()]
         localRepositoryStub.stubbedLocalRepos = repos
-        
+
         // When
         interactorClient.fetchAvailableRepos()
-        
+
         // Then
         guard case .success(repos) = interactorClient.availableReposResponse else {
             return XCTFail()
         }
     }
-    
+
     func testFetchAvailableRepos_ReturnRemoteReposWhenLocalReposEmpty_Successfully() {
         // Given
         let repos: [Repo] = [.stubbed()]
         remoteRepositoryStub.remoteReposResponse = .success(.init(repos: repos))
         localRepositoryStub.stubbedLocalRepos = []
-        
+
         // When
         interactorClient.fetchAvailableRepos()
-        
+
         // Then
         guard case .success(repos) = interactorClient.availableReposResponse else {
             return XCTFail()
         }
     }
-    
+
     func testFetchAvailableRepos_ReturnRemoteReposWhenLocalReposEmpty_WhenFailure() {
         // Given
         let error = NetworkError.unknown
         remoteRepositoryStub.remoteReposResponse = .failure(error)
         localRepositoryStub.stubbedLocalRepos = []
-        
+
         // When
         interactorClient.fetchAvailableRepos()
-        
+
         // Then
         guard case .failure(NetworkError.unknown) = interactorClient.availableReposResponse else {
             return XCTFail()
@@ -142,18 +142,18 @@ extension ReposListInteractorTests {
 extension ReposListInteractorTests {
     class FakeInteractorClient {
         let interactor: ReposListInteractor
-        
+
         init(interactor: ReposListInteractor) {
             self.interactor = interactor
         }
-        
+
         var availableReposResponse: Result<[Repo], Error>!
         func fetchAvailableRepos() {
             interactor.fetchAvailableRepos { [weak self] result in
                 self?.availableReposResponse = result
             }
         }
-        
+
         var remoteReposResponse: Result<[Repo], Error>!
         func fetchRemoteRepos() {
             interactor.fetchRemoteRepos { [weak self]  result in
@@ -161,26 +161,26 @@ extension ReposListInteractorTests {
             }
         }
     }
-    
+
     class ReposListRemoteRepositoryStub: ReposListRemoteRepository {
         var remoteReposResponse: Result<Response, Error>!
-        
+
         func fetchRemoteRepos(_ completion: (Result<Response, Error>) -> Void) {
             completion(remoteReposResponse)
         }
     }
-    
+
     class ReposListLocalRepositoryStub: ReposListLocalRepository {
         private(set) var storedRepos: [Repo]!
         func storeRepos(_ repos: [Repo]) {
             self.storedRepos = repos
         }
-        
+
         var stubbedLocalRepos: [Repo]!
-        
+
         func localRepos() -> [Repo] {
             stubbedLocalRepos
         }
-        
+
     }
 }
