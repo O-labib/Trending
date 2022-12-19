@@ -91,10 +91,21 @@ extension ReposListViewController {
 
 extension ReposListViewController: ReposListViewProtocol {
     func updateViewState(_ state: State) {
-        refreshControl?.endRefreshing()
+        func updateUIComponents() {
+            self.refreshControl?.endRefreshing()
+            
+            self.state = state
+            self.tableView.reloadData()
+        }
         
-        self.state = state
-        tableView.reloadData()
+        /// while testing
+        if Thread.isMainThread {
+            updateUIComponents()
+        } else {
+            DispatchQueue.main.async {
+                updateUIComponents()
+            }
+        }
     }
 }
 
