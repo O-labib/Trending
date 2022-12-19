@@ -163,9 +163,9 @@ extension ReposListInteractorTests {
     }
     
     class ReposListRemoteRepositoryStub: ReposListRemoteRepository {
-        var remoteReposResponse: Result<Response, NetworkError>!
+        var remoteReposResponse: Result<Response, Error>!
         
-        func fetchRemoteRepos(_ completion: (Result<Response, NetworkError>) -> Void) {
+        func fetchRemoteRepos(_ completion: (Result<Response, Error>) -> Void) {
             completion(remoteReposResponse)
         }
     }
