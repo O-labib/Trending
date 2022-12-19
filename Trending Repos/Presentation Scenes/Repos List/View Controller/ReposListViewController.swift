@@ -14,6 +14,7 @@ class ReposListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Trending"
         registerCells()
         setupRefreshControl()
         presenter.loadAvailableRepos()

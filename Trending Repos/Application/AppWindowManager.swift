@@ -27,6 +27,8 @@ private extension AppWindowManager {
     }
 
     static var entryViewController: UIViewController {
-        ReposListSceneConfigurator.configured()
+        UINavigationController(
+            rootViewController: ReposListSceneConfigurator.configured()
+        )
     }
 }
