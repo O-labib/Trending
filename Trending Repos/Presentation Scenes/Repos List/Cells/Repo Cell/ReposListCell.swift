@@ -38,6 +38,7 @@ class ReposListCell: UITableViewCell {
     private func configure() {
         guard let viewModel else { return }
         
+        avatarImageView.load(from: viewModel.ownerAvatarURL)
         ownerNameLabel.text = viewModel.ownerName
         repoTitleLabel.text = viewModel.repoTitle
         repoDescriptionLabel.text = viewModel.repoDescription
