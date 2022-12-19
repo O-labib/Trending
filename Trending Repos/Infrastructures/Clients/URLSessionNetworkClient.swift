@@ -25,9 +25,7 @@ extension URLSession: NetworkClient {
                 }
 
                 do {
-                    let decoded = JSONDecoder()
-                    decoded.keyDecodingStrategy = .convertFromSnakeCase
-                    let model = try decoded.decode(T.self, from: data)
+                    let model = try JSONDecoder.default.decode(T.self, from: data)
                     completion(.success(model))
                 } catch let error {
                     completion(.failure(error))

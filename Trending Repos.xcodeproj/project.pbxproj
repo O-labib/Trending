@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03BF46A0C6764043F23DB421 /* libPods-Trending ReposTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 375799847643CCCFE933406A /* libPods-Trending ReposTests.a */; };
 		76FF47E4F8241E6EE3134225 /* libPods-Trending Repos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE9C806661035C4C633EED /* libPods-Trending Repos.a */; };
+		B646C8242950078B0004DEC0 /* JsonDecoder+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = B646C8232950078B0004DEC0 /* JsonDecoder+Default.swift */; };
 		B69BCE14294F1E1100F4EDD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BCE13294F1E1100F4EDD8 /* AppDelegate.swift */; };
 		B69BCE1D294F1E1400F4EDD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69BCE1C294F1E1400F4EDD8 /* Assets.xcassets */; };
 		B69BCE20294F1E1400F4EDD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69BCE1E294F1E1400F4EDD8 /* LaunchScreen.storyboard */; };
@@ -65,6 +66,7 @@
 		1E5CF3CB6C18A8AC2E48CCE6 /* Pods-Trending ReposTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending ReposTests.debug.xcconfig"; path = "Target Support Files/Pods-Trending ReposTests/Pods-Trending ReposTests.debug.xcconfig"; sourceTree = "<group>"; };
 		375799847643CCCFE933406A /* libPods-Trending ReposTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trending ReposTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0ACBEB1A67661A5CE29AAB /* Pods-Trending ReposTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending ReposTests.release.xcconfig"; path = "Target Support Files/Pods-Trending ReposTests/Pods-Trending ReposTests.release.xcconfig"; sourceTree = "<group>"; };
+		B646C8232950078B0004DEC0 /* JsonDecoder+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JsonDecoder+Default.swift"; sourceTree = "<group>"; };
 		B69BCE10294F1E1100F4EDD8 /* Trending Repos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trending Repos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69BCE13294F1E1100F4EDD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B69BCE1C294F1E1400F4EDD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				B69BCE57294F27D900F4EDD8 /* Clients Configurator */,
 				B69BCE50294F268A00F4EDD8 /* Clients */,
+				B646C8232950078B0004DEC0 /* JsonDecoder+Default.swift */,
 			);
 			path = Infrastructures;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B646C8242950078B0004DEC0 /* JsonDecoder+Default.swift in Sources */,
 				B69BCE47294F259400F4EDD8 /* ReposListNetworkService.swift in Sources */,
 				B69BCE40294F24D300F4EDD8 /* ReposListRemoteRepository.swift in Sources */,
 				B69BCE75294F32E100F4EDD8 /* ReposListFailureCell.swift in Sources */,
