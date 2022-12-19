@@ -48,6 +48,7 @@
 		B69D5F53294FE7D90058EEB1 /* ReposListLocalServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F52294FE7D90058EEB1 /* ReposListLocalServiceTests.swift */; };
 		B69D5F55294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F54294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift */; };
 		B69D5F57294FF0D50058EEB1 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D5F56294FF0D50058EEB1 /* UIImageView+Extensions.swift */; };
+		B69D5F59294FF59E0058EEB1 /* networkErrorLottieAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = B69D5F58294FF59E0058EEB1 /* networkErrorLottieAnimation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		B69D5F52294FE7D90058EEB1 /* ReposListLocalServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListLocalServiceTests.swift; sourceTree = "<group>"; };
 		B69D5F54294FEDB10058EEB1 /* ReposListNetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListNetworkServiceTests.swift; sourceTree = "<group>"; };
 		B69D5F56294FF0D50058EEB1 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		B69D5F58294FF59E0058EEB1 /* networkErrorLottieAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = networkErrorLottieAnimation.json; sourceTree = "<group>"; };
 		BB3E12E0BEC24BF1F8C6B53B /* Pods-Trending Repos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.debug.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.debug.xcconfig"; sourceTree = "<group>"; };
 		C44B33FB15256969625B8823 /* Pods-Trending Repos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trending Repos.release.xcconfig"; path = "Target Support Files/Pods-Trending Repos/Pods-Trending Repos.release.xcconfig"; sourceTree = "<group>"; };
 		EDEE9C806661035C4C633EED /* libPods-Trending Repos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trending Repos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 		B69BCE2A294F21EF00F4EDD8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B69D5F58294FF59E0058EEB1 /* networkErrorLottieAnimation.json */,
 				B69BCE1C294F1E1400F4EDD8 /* Assets.xcassets */,
 				B69BCE1E294F1E1400F4EDD8 /* LaunchScreen.storyboard */,
 			);
@@ -503,6 +506,7 @@
 			files = (
 				B69BCE6E294F30AB00F4EDD8 /* ReposListLoadingCell.xib in Resources */,
 				B69BCE20294F1E1400F4EDD8 /* LaunchScreen.storyboard in Resources */,
+				B69D5F59294FF59E0058EEB1 /* networkErrorLottieAnimation.json in Resources */,
 				B69BCE31294F22CC00F4EDD8 /* ReposListViewController.xib in Resources */,
 				B69BCE7B294F33A300F4EDD8 /* ReposListCell.xib in Resources */,
 				B69BCE1D294F1E1400F4EDD8 /* Assets.xcassets in Resources */,
